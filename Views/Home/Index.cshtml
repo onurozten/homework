@@ -1,0 +1,40 @@
+﻿@model List<BookModelWithPenalty>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Country</th>
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Checkout</th>
+                    <th scope="col">Returned</th>
+                    <th scope="col">Total Days</th>
+                    <th scope="col">Total Work Days</th>
+                    <th scope="col">Penalty (days)</th>
+                    <th scope="col">Penalty Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.Country.Name</td>
+                    <td>@b.BookName</td>
+                    <td>@b.CheckOutDate.ToString("dd.MM.yyyy")</td>
+                    <td>@b.ReturnDate.ToString("dd.MM.yyyy")</td>
+                    <td>@b.TotalDays</td>
+                    <td>@b.TotalWorkDays</td>
+                    <td>@b.Penalty</td>
+                    <td>@b.PenaltyAmount</td>
+
+                </tr>
+            }
+            
+            </tbody>
+        </table>
+    </div>
